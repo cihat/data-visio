@@ -1,13 +1,13 @@
-FROM node:14-alpine
+FROM node:21-alpine
 
 WORKDIR /app
 
-ADD package.json package-lock.json ./
+ADD package.json pnpm-lock.yaml ./
 
 RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 
-RUN npm install
+RUN pnpm install
 
-ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js ./
+ADD .eslintrc.cjs .prettierrc.json 
 
-CMD [ "npm", "run", "serve" ]
+CMD [ "pnpm", "dev" ]
