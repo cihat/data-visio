@@ -19,5 +19,5 @@ export default {
 
 <template lang="pug">
 .home
-  hello-world(msg="Welcome to your stack.")
+  hello-world(msg="Welcome to your data-visio.")
 </template>

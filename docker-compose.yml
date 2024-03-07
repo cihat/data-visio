@@ -1,13 +1,13 @@
 version: '3'
 services:
   frontend:
-    image: stack-frontend
+    image: data-visio-frontend
     build:
       context: frontend
       dockerfile: dev.Dockerfile
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.frontend.rule=Host(`${DOMAIN:-stack.localhost}`)'
+      - 'traefik.http.routers.frontend.rule=Host(`${DOMAIN:-data-visio.localhost}`)'
       - 'traefik.http.routers.frontend.entrypoints=web'
     ports:
       - 8080
@@ -15,15 +15,15 @@ services:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
   backend:
-    image: stack-backend
+    image: data-visio-backend
     build:
       context: backend
       dockerfile: dev.Dockerfile
     environment:
-      - MONGODB_CONNECTION_STRING=mongodb://mongo/stack
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/data-visio
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.backend.rule=(Host(`${DOMAIN:-stack.localhost}`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
+      - 'traefik.http.routers.backend.rule=(Host(`${DOMAIN:-data-visio.localhost}`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
       - 'traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api'
       - 'traefik.http.routers.backend.middlewares=backend-stripprefix@docker'
       - 'traefik.http.routers.backend.entrypoints=web'
