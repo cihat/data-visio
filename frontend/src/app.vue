@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue';
-import AppSidebar from './components/AppSidebar.vue';
 </script>
 
 <template>
   <a-layout id="app">
     <app-header />
     <a-layout>
-      <app-sidebar />
       <a-layout>
         <a-layout-content class="content">
           <router-view />

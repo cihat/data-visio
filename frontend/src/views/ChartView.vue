@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
+import ChartSidebar from '@/components/chart/ChartSidebar.vue';
+import ChartBreadCrumb from '@/components/chart/ChartBreadCrumb.vue';
+
 const selectedKeys2 = ref<string[]>(['1']);
 const openKeys = ref<string[]>(['sub1']);
 
@@ -21,19 +24,14 @@ const chartOptions = reactive({
 
 <template>
   <a-layout>
+    <chart-sidebar />
     <a-layout-content style="padding: 0 50px">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
-      <a-layout style="padding: 24px 0; background: #fff">
-        <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
-          Chart
-          <highcharts :options="chartOptions"></highcharts>
+      <chart-bread-crumb />
+      <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
+        Chart
+        <highcharts :options="chartOptions"></highcharts>
 
-        </a-layout-content>
-      </a-layout>
+      </a-layout-content>
     </a-layout-content>
   </a-layout>
 </template>
