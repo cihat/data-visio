@@ -33,7 +33,6 @@ app.use((req, res, next) => {
 })
 
 // error handler
-/* eslint-disable-next-line */
 app.use((err, req, res, next) => {
   const error = {
     status: err.status || 500,
