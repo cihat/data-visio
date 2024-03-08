@@ -1,33 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
-
-const selected = ref<string[]>(['']);
+import AppHeader from './components/AppHeader.vue';
+import AppSidebar from './components/AppSidebar.vue';
 </script>
 
 <template>
-  <a-layout-header class="header">
-    <a-menu v-model:selectedKeys="selected" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
-      <a-menu-item key="home">
-        <RouterLink to="/">
-          Home
-        </RouterLink>
-      </a-menu-item>
-      <a-menu-item key="chart">
-        <RouterLink to="/chart">
-          Chart
-        </RouterLink>
-      </a-menu-item>
-      <a-menu-item key="about">
-        <RouterLink to="/about">
-          About
-        </RouterLink>
-      </a-menu-item>
-    </a-menu>
-  </a-layout-header>
-
-  <RouterView />
+  <a-layout id="app">
+    <app-header />
+    <a-layout>
+      <app-sidebar />
+      <a-layout>
+        <a-layout-content class="content">
+          <router-view />
+        </a-layout-content>
+        <a-layout-footer style="text-align: center">
+          2024 © Cihat SALIK
+        </a-layout-footer>
+      </a-layout>
+    </a-layout>
+  </a-layout>
 </template>
 
 <style scoped>
+.ant-layout-content {
+  min-height: calc(100vh - 128px);
+}
 </style>
