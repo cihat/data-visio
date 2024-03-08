@@ -18,6 +18,11 @@ const selected = ref<string[]>(['']);
           Chart
         </RouterLink>
       </a-menu-item>
+      <a-menu-item key="editor">
+        <RouterLink to="/editor">
+          Editor
+        </RouterLink>
+      </a-menu-item>
     </a-menu>
   </a-layout-header>
 </template>

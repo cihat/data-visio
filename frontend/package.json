@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@guolao/vue-monaco-editor": "^1.5.1",
     "ant-design-vue": "~4.1.2",
     "highcharts-vue": "^2.0.0",
     "pinia": "^2.1.7",
+    "splitpanes": "^3.1.5",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
