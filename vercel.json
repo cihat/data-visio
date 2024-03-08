@@ -1,5 +1,11 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
   "cleanUrls": true,
   "redirects": [
     {
@@ -7,5 +13,5 @@
       "destination": "https://github.com/cihat"
     }
   ],
-  "scope": "frontend/"
+  "workDir": "frontend"
 }
