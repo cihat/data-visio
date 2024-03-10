@@ -3,7 +3,7 @@ import { reactive, ref } from "vue"
 const chartData = ref<Array<any>>([10, 0, 8, 2, 6, 4, 5, 5])
 const chartType = ref<String>("line")
 const chartTitle = ref<String>("")
-const isEditorOpen = ref<Boolean>(true);
+const isEditorOpen = ref<Boolean>(false);
 let chartOptions = reactive<any>({
   chart: {
     type: 'spline'

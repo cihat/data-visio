@@ -8,8 +8,8 @@ const { onChangeEditorStatus } = useChartStore()
 </script>
 <template>
   <a-row class="chart-container" justify="space-around" align="middle">
-    <a-col :span="12">
-      <a-button type="primary" @click="onChangeEditorStatus(true)">Open Editor</a-button>
+    <a-col :span="16">
+      <a-button type="primary" @click="onChangeEditorStatus(true)">Open Editor (⌘ + E)</a-button>
       <high-charts />
     </a-col>
   </a-row>
@@ -18,7 +18,7 @@ const { onChangeEditorStatus } = useChartStore()
 
 <style scoped>
 .chart-container {
-  margin-top: 20px;
+  padding-top: 20px;
   height: 100vh;
 }
 </style>
