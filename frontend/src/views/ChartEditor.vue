@@ -1,43 +1,24 @@
 <script setup lang="ts" >
-import MonocaEditor from '@/components/chart/MonacoEditor.vue';
-import { Pane, Splitpanes } from 'splitpanes'
-import 'splitpanes/dist/splitpanes.css'
-import { reactive } from 'vue'
+import EditorDrawer from '@/components/chart/EditorDrawer.vue';
+import HighCharts from '@/components/chart/HighCharts.vue';
+import { useChartStore } from '@/router/useChartStore';
 
-const chartOptions = reactive({
-  chart: {
-    type: 'spline'
-  },
-  title: {
-    text: 'Test Dashboard'
-  },
-  series: [{
-    data: [10, 0, 8, 2, 6, 4, 5, 5]
-  }],
-  accessibility: {
-    description: 'This is a description of the entire chart.'
-  }
-})
+const { onChangeEditorStatus } = useChartStore()
 
 </script>
 <template>
-  <a-layout>
-    <splitpanes>
-      <pane min-size="30" max-size="70" class="wrappser">
-        <monoca-editor />
-      </pane>
-      <pane class="awrapper">
-        <highcharts :options="chartOptions"></highcharts>
-      </pane>
-    </splitpanes>
-  </a-layout>
+  <a-row class="chart-container" justify="space-around" align="middle">
+    <a-col :span="12">
+      <a-button type="primary" @click="onChangeEditorStatus(true)">Open Editor</a-button>
+      <high-charts />
+    </a-col>
+  </a-row>
+  <editor-drawer />
 </template>
 
 <style scoped>
-.ant-layout {
-  padding: 1em;
-}
-.splitpanes {
-  width: 100%;
+.chart-container {
+  margin-top: 20px;
+  height: 100vh;
 }
 </style>
