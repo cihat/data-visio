@@ -3,14 +3,12 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const dotenv = require('dotenv')
-
-dotenv.config()
+require('dotenv').config()
+require('./database-connection')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 
-require('./database-connection')
 
 const app = express()
 
