@@ -1,5 +1,5 @@
 import 'ant-design-vue/dist/reset.css';
-// import './assets/main.css'
+import "./assets/main.css"
 
 import App from './App.vue'
 import router from './router'
