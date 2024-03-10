@@ -9,11 +9,6 @@ const router = createRouter({
       name: 'editor',
       component: ChartEditor
     },
-    {
-      path: '/chart',
-      name: 'chart',
-      component: () => import('../views/ChartView.vue')
-    }
   ]
 })
 
