@@ -50,7 +50,7 @@ const handleMenuClick: MenuProps['onClick'] = e => {
 
 <template>
   <a-dropdown-button class="dropdown">
-    Dropdown
+    Chart Types
     <template #overlay>
       <a-menu @click="handleMenuClick">
         <a-menu-item v-for="type in chartTypes" :key="type.key">
