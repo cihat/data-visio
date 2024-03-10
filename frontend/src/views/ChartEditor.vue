@@ -2,23 +2,31 @@
 import EditorDrawer from '@/components/chart/EditorDrawer.vue';
 import HighCharts from '@/components/chart/HighCharts.vue';
 import { useChartStore } from '@/router/useChartStore';
-
+import DropdownComponent from '@/components/Dropdown.vue';
+import { ref } from 'vue';
 const { onChangeEditorStatus } = useChartStore()
+
+
 
 </script>
 <template>
-  <a-row class="chart-container" justify="space-around" align="middle">
-    <a-col :span="16">
+  <a-layout>
+    <a-layout-header class="header">
       <a-button type="primary" @click="onChangeEditorStatus(true)">Open Editor (⌘ + E)</a-button>
-      <high-charts />
-    </a-col>
-  </a-row>
-  <editor-drawer />
+      <dropdown-component />
+
+    </a-layout-header>
+    <a-row class="chart-container" justify="space-around" align="middle">
+      <a-col :span="16">
+        <high-charts />
+      </a-col>
+    </a-row>
+    <editor-drawer />
+  </a-layout>
 </template>
 
 <style scoped>
 .chart-container {
-  padding-top: 20px;
   height: 100vh;
 }
 </style>
